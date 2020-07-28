@@ -33,18 +33,20 @@
     </delete>
 
 
-    <select id="seleteByUserName" resultType="com.tomato.entity.po.User">
-        SELECT
-	        u.id,
-	        u.username,
-	        u.PASSWORD,
-	        r.id AS rid,
-	        r.roleName,
-	        r.roleDesc
-            FROM user u
-            LEFT OUTER JOIN users_role ur
-                ON u.id = ur.userId
-            LEFT OUTER JOIN role r
-                ON r.id=ur.roleId;
+    <select id="seleteByUserName" resultMap="user" parameterType="string">
+        SELECT * FROM(
+            SELECT
+	            u.id,
+	            u.username,
+	            u.PASSWORD,
+	            r.id AS rid,
+	            r.roleName,
+	            r.roleDesc
+                FROM user u
+                LEFT OUTER JOIN users_role ur
+                    ON u.id = ur.userId
+                LEFT OUTER JOIN role r
+                    ON r.id=ur.roleId) a
+                    WHERE a.username = #{username};
     </select>
 </mapper>

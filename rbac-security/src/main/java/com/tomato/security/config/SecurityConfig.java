@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 //不需要身份认证
                 .antMatchers("/", "/login", "/login.html","/user/register","/register").permitAll()
-                .antMatchers("/user/manager/select").hasAnyRole("GUEST")
+                .antMatchers("/user/manager/select").hasAnyRole("GUEST","ADMIN")
                 .antMatchers("/user/**").hasAnyRole("ADMIN")
                 .antMatchers("/role/manager/select").hasAnyRole("GUEST")
                 .antMatchers("/role/**").hasAnyRole("ADMIN")

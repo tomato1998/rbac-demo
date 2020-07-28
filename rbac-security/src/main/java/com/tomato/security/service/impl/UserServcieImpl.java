@@ -46,7 +46,6 @@ public class UserServcieImpl implements IUserService, UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         log.info("loadUserByUsername方法被调用");
         User user = userDao.seleteByUserName(s);
-        log.info("user:"+user);
         if(user == null){
             log.error("用户没有找到");
             throw new UsernameNotFoundException("用户不存在");
@@ -61,6 +60,7 @@ public class UserServcieImpl implements IUserService, UserDetailsService {
                 }
             }
         }
+        log.info("user:"+user);
         session.setAttribute("username",user);
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),

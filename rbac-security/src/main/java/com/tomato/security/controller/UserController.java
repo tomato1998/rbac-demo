@@ -19,7 +19,7 @@ import javax.annotation.Resource;
  * @Date 2020/7/27
  * @Content:
  */
-@Controller
+@RestController
 @Slf4j
 public class UserController {
 
@@ -68,7 +68,8 @@ public class UserController {
     @GetMapping("/user/manager/select")
     public CommonResult add(@RequestParam(required = true) String username){
         User result = userService.seleteByUserName(username);
-        if(result == null){
+        log.info("result:"+result);
+        if(result != null){
             return new CommonResult(200,"用户查询成功",result);
         }else {
             return new CommonResult(500,"用户查询失败",result);
