@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomato.security.dao.IUserDao">
+
+    <resultMap id="user" type="com.tomato.entity.po.User">
+        <id javaType="long" column="id" property="id"/>
+        <result javaType="string" column="username" property="username"/>
+        <result javaType="string" column="PASSWORD" property="password"/>
+        <collection property="roles" ofType="com.tomato.entity.po.Role">
+            <id property="id" column="id"/>
+            <result property="roleDesc" column="roleDesc"/>
+            <result property="roleName" column="roleName"/>
+        </collection>
+    </resultMap>
+
+    <insert id="add" parameterType="com.tomato.entity.po.User" useGeneratedKeys="true">
+        insert into user(username,PASSWORD) values(#{username},#{password});
+    </insert>
+
+    <update id="update" parameterType="com.tomato.entity.po.User">
+        update user set username=#{username},PASSWORD=#{password} where id=#{id}
+    </update>
+    <delete id="delete" parameterType="com.tomato.entity.po.User">
+        delete from user
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="roleName != null and roleName !=''">
+                and username = #{id}
+            </if>
+        </where>
+    </delete>
+
+
+    <select id="seleteByUserName" resultType="com.tomato.entity.po.User">
+        SELECT
+	        u.id,
+	        u.username,
+	        u.PASSWORD,
+	        r.id AS rid,
+	        r.roleName,
+	        r.roleDesc
+            FROM user u
+            LEFT OUTER JOIN users_role ur
+                ON u.id = ur.userId
+            LEFT OUTER JOIN role r
+                ON r.id=ur.roleId;
+    </select>
+</mapper>

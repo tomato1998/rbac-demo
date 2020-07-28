@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tomato.security.dao.IRoleDao">
+
+
+
+    <insert id="addeRole" parameterType="com.tomato.entity.po.Role" useGeneratedKeys="true">
+        insert into role(roleName,roleDesc) values(#{roleName},#{roleDesc})
+    </insert>
+
+    <update id="updateRole" parameterType="com.tomato.entity.po.Role">
+        update role set roleName=#{roleName},roleDesc=#{roleDesc} where id=#{id}
+    </update>
+
+    <delete id="deleteRole" parameterType="com.tomato.entity.po.Role">
+        delete from role
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="roleName != null and roleName !=''">
+                and roleName = #{id}
+            </if>
+        </where>
+    </delete>
+
+
+    <select id="selectRoleByName" resultType="com.tomato.entity.po.Role" parameterType= "string">
+        select id,roleName,roleDesc from role where roleName = #{roleName}
+    </select>
+
+
+</mapper>

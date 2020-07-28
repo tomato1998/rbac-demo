@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style type="text/css">
+        table {border-collapse: collapse; font-size: 14px; width: 80%; margin: auto}
+        table, th, td {border: 1px solid darkslategray;padding: 10px}
+    </style>
+</head>
+<br>
+<br>登陆成功，欢迎</br>
+<br>====================用户操作,GUEST用户仅可查询======================</br>
+<br>
+<form method="post" action="/user/manager/add">
+    username: <input type="text" name="username">
+    password: <input type="text" name="password">
+    <button  type="submit">增添用户</button>
+</form></br>
+<br>
+<form method="get" action="/user/manager/delete">
+    用户ID: <input type="number" name="id">
+    username: <input type="text" name="username">
+    <button  type="submit">根据用户ID或用户名删除用户</button>
+</form></br>
+<br>
+<form method="post" action="/user/manager/update">
+    username: <input type="text" name="username">
+    password: <input type="text" name="password">
+    <button  type="submit">修改用户</button>
+</form></br>
+<br>
+<form method="get" action="/user/manager/select">
+    username: <input type="text" name="username">
+    <button  type="submit">根据用户名用户</button>
+</form></br>
+
+<br>=====================角色操作,GUEST仅可查询====================</br>
+<br>
+<form method="post" action="/role/manager/add">
+    roleName: <input type="text" name="roleName">
+    roleDesc: <input type="text" name="roleDesc">
+    <button  type="submit">增添角色</button>
+</form></br>
+<br>
+<form method="get" action="/role/manager/delete">
+    roleId: <input type="text" name="id">
+    roleName: <input type="text" name="roleName">
+    <button  type="submit">根据角色ID或角色名删除角色</button>
+</form></br>
+<br>
+<form method="post" action="/role/manager/update">
+    roleName: <input type="text" name="roleName">
+    roleDesc: <input type="text" name="roleDesc">
+    <button  type="submit">修改角色</button>
+</form></br>
+<br>
+<form method="get" action="/role/manager/select">
+    roleName: <input type="text" name="roleName">
+    <button  type="submit">根据角色名查询角色</button>
+</form></br>
+
+
+
+<br>===================权限操作========================</br>
+<br>
+<form method="post" action="/authority/manager/add">
+    userId: <input type="text" name="roleName">
+    roleId: <input type="text" name="roleDesc">
+    <button  type="submit">给指定用户赋予指定权限</button>
+</form></br>
+<br>
+<form method="get" action="/authority/manager/remove">
+    userId: <input type="text" name="roleName">
+    roleId: <input type="text" name="roleDesc">
+    <button  type="submit">删除指定用户的指定权限</button>
+</form></br>
+
+</body>
+</html>
