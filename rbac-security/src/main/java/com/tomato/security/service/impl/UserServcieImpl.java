@@ -61,7 +61,7 @@ public class UserServcieImpl implements IUserService, UserDetailsService {
             }
         }
         log.info("user:"+user);
-        session.setAttribute("username",user);
+        session.setAttribute("user",user);
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
                 user.getPassword(),
@@ -94,7 +94,6 @@ public class UserServcieImpl implements IUserService, UserDetailsService {
     public int update(User user) {
         userDao.update(user);
         return 1;
-
     }
 
     @Override
