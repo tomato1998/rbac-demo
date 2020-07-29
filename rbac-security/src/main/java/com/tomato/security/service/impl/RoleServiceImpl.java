@@ -24,8 +24,9 @@ public class RoleServiceImpl implements IRoleService {
 
     @Override
     public Role selectRoleByName(String roleName) {
-
-        return roleDao.selectRoleByName(roleName);
+        Role role = roleDao.selectRoleByName(roleName);
+        log.info("***************查询角色:"+role);
+        return role;
     }
 
     @Override

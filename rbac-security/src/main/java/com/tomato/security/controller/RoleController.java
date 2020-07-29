@@ -57,6 +57,7 @@ public class RoleController {
 
     @GetMapping("/role/manager/select")
     public CommonResult select(@RequestParam(required = true) String roleName){
+        log.info("***************查询角色名:"+roleName);
         Role result = roleService.selectRoleByName(roleName);
         if(result == null){
             return new CommonResult(200,"无此角色");

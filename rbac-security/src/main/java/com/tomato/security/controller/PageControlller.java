@@ -26,4 +26,14 @@ public class PageControlller {
         return "index";
     }
 
+    @PostMapping("/page/loginFail")
+    public String loginFailPage(){
+        return "loginFail";
+    }
+
+    @PostMapping("/page/deny")
+    public String denyPage(){
+        return "deny";
+    }
+
 }
