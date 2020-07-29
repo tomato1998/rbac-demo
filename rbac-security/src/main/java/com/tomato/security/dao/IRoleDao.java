@@ -1,9 +1,7 @@
 package com.tomato.security.dao;
 
 import com.tomato.entity.po.Role;
-import org.mybatis.spring.annotation.MapperScan;
 
-import java.util.List;
 
 /**
  * @author LiDaShan

@@ -1,7 +1,7 @@
 package com.tomato.security.dao;
 
 import com.tomato.entity.po.User;
-import org.mybatis.spring.annotation.MapperScan;
+
 
 /**
  * @author LiDaShan

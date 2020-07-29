@@ -9,7 +9,7 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
  * @Version 1.0
  * @Date 2020/7/27
  * @Content:  creating a servlet filter that replaces the HttpSession
- *              implementation with an implementation backed by Spring Session
+ *            implementation with an implementation backed by Spring Session
  */
 @EnableRedisHttpSession
 public class SpringSessionConfig {

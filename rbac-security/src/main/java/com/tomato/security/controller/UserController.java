@@ -1,15 +1,12 @@
 package com.tomato.security.controller;
 
 
-import com.tomato.entity.po.Role;
 import com.tomato.entity.po.User;
 import com.tomato.entity.vo.CommonResult;
 import com.tomato.security.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.Resource;
 
 
@@ -26,6 +23,11 @@ public class UserController {
     @Resource
     private IUserService userService;
 
+    /**
+     * 用户注册
+     * @param user
+     * @return
+     */
     @RequestMapping("/user/register")
     public String register(User user){
         log.info("user:"+user);

@@ -3,7 +3,6 @@ package com.tomato.security.controller;
 import com.tomato.entity.vo.CommonResult;
 import com.tomato.security.service.IAuthorityService;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +23,12 @@ public class AuthorityController {
     @Resource
     private IAuthorityService authorityService;
 
+    /**
+     * 给指定用户增添权限
+     * @param userId
+     * @param roleId
+     * @return
+     */
     @PostMapping("/authority/manager/add")
     public CommonResult add(@RequestParam(required = true,name = "userId") Long userId,
                             @RequestParam(required = true,name = "userId") Long roleId){
@@ -36,6 +41,12 @@ public class AuthorityController {
     }
 
 
+    /**
+     * 删除指定用户权限
+     * @param userId
+     * @param roleId
+     * @return
+     */
     @GetMapping("/authority/manager/remove")
     public CommonResult remove(@RequestParam(required = true,name = "userId") Long userId,
                          @RequestParam(required = true,name = "userId") Long roleId){

@@ -20,7 +20,7 @@ import javax.annotation.Resource;
  * @author LiDaShan
  * @Version 1.0
  * @Date 2020/7/27
- * @Content:
+ * @Content: security配置类
  */
 @Configuration
 @EnableWebSecurity
@@ -39,15 +39,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-
-
-
+    /**
+     * 从数据库读取用户名密码
+     * @param auth
+     * @throws Exception
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(userService).passwordEncoder(passwordEncoder);
     }
 
 
+    /**
+     * 配置拦截规则
+     * @param http
+     * @throws Exception
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
