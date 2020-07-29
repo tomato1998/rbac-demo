@@ -12,26 +12,26 @@ spring:
       config:
         server-addr: localhost:8848
         file-extension: yaml
-  redis:
-    host: localhost
-    port: 6379
-    # 选择redis的数据库的分库
-    database: 5
-    #redis连接池配置
-    jedis:
-      pool:
-        max-idle: 10
-        min-idle: 5
-        max-active: 100
-        max-wait: 3000
-        timeout: 6005
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://39.97.123.56:3306/rbac_test?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: root
-    password: root
-  session:
-    store-type: redis
+#  redis:
+#    host: localhost
+#    port: 6379
+#    # 选择redis的数据库的分库
+#    database: 5
+#    #redis连接池配置
+#    jedis:
+#      pool:
+#        max-idle: 10
+#        min-idle: 5
+#        max-active: 100
+#        max-wait: 3000
+#        timeout: 6005
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://39.97.123.56:3306/rbac_test?useUnicode=true&characterEncoding=utf-8&useSSL=false
+#    username: root
+#    password: root
+#  session:
+#    store-type: redis
 mybatis:
   mapper-locations: classpath:mapper/*.xml

@@ -1,6 +1,7 @@
 package com.tomato.security.service.impl;
 
 import com.tomato.entity.po.Role;
+import com.tomato.security.dao.IRoleDao;
 import com.tomato.security.service.IRoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -18,13 +19,13 @@ import javax.annotation.Resource;
 public class RoleServiceImpl implements IRoleService {
 
     @Resource
-    private IRoleService roleService;
+    private IRoleDao roleDao;
 
 
     @Override
     public Role selectRoleByName(String roleName) {
 
-        return roleService.selectRoleByName(roleName);
+        return roleDao.selectRoleByName(roleName);
     }
 
     @Override
@@ -37,13 +38,13 @@ public class RoleServiceImpl implements IRoleService {
             log.info("此角色已经存在");
             return -1;
         }
-        roleService.addeRole(role);
+        roleDao.addeRole(role);
         return 1;
     }
 
     @Override
     public int deleteRole(Role role) {
-        roleService.deleteRole(role);
+        roleDao.deleteRole(role);
         return 1;
     }
 
@@ -53,7 +54,7 @@ public class RoleServiceImpl implements IRoleService {
             log.info("角色信息不能为空");
             return 0;
         }
-        roleService.updateRole(role);
+        roleDao.updateRole(role);
         return 1;
 
     }
