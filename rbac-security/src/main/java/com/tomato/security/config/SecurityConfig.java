@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 //不需要身份认证
-                .antMatchers("/", "/login", "/login.html","/user/register","/register").permitAll()
+                .antMatchers("/", "/login", "/page/loginFail","/user/register","/register").permitAll()
                 .antMatchers("/user/manager/select").hasAnyRole("GUEST","ADMIN")
                 .antMatchers("/user/**").hasAnyRole("ADMIN")
                 .antMatchers("/role/manager/select").hasAnyRole("GUEST","ADMIN")
@@ -61,8 +61,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //.antMatchers("/authority/**").hasAnyRole("ADMIN")
                 .and().formLogin()
                     .successForwardUrl("/page/index")
-                    .failureUrl("/page/loginFail")
                     .failureHandler(authenticationFailureHandler)
+                    .failureForwardUrl("/page/loginFail")
                     .permitAll()
                 .and().logout()
                     .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
