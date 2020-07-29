@@ -13,14 +13,10 @@ import reactor.core.publisher.Mono;
  */
 @Slf4j
 @Service
-
 public class RouteHandlerServiceImpl implements IRouteHandlerService {
 
     @Autowired
     private RouteDefinitionWriter routeDefinitionWriter;
-
-
-
 
     @Override
     public String update(RouteDefinition definition) {
@@ -37,7 +33,6 @@ public class RouteHandlerServiceImpl implements IRouteHandlerService {
             return "update route fail";
         }
     }
-
 
 
     @Override

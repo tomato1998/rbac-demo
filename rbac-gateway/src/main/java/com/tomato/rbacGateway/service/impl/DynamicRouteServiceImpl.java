@@ -35,17 +35,6 @@ public class DynamicRouteServiceImpl implements IDynamicRouteService {
     private IRouteHandlerService routeHandlerService;
     private ConfigService configService;
 
-
-    @NacosConfigListener(dataId = "gateway9966-dev.json", groupId = "nacos-demo1",type = ConfigType.JSON)
-    public void onMessage(String config) {
-        log.info("**************************");
-        log.info("************成功**************");
-        System.out.println(config);
-    }
-
-
-
-
     @PostConstruct
     @Override
     public void init() {

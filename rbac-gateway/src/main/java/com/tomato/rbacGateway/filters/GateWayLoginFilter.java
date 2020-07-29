@@ -17,7 +17,7 @@ import java.util.Date;
  * @author LiDaShan
  * @Version 1.0
  * @Date 2020/7/24
- * @Content:
+ * @Content: 网关的全局过滤器
  */
 @Component
 @Slf4j
