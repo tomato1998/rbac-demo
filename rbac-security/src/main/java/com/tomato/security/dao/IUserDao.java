@@ -12,8 +12,28 @@ import org.mybatis.spring.annotation.MapperScan;
 
 public interface IUserDao {
 
+    /**
+     * 增添用户
+     * @param user
+     */
     void add(User user);
+
+    /**
+     * 删除用户
+     * @param user
+     */
     void delete(User user);
+
+    /**
+     * 更新用户
+     * @param user
+     */
     void update(User user);
+
+    /**
+     * 根据用户名查询用户所有信息
+     * @param username
+     * @return
+     */
     User seleteByUserName(String username);
 }

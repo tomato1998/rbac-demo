@@ -11,6 +11,19 @@ import org.apache.ibatis.annotations.Param;
 
 public interface IAuthorityService {
 
+    /**
+     * 给指定用户增加权限
+     * @param userId
+     * @param roleId
+     * @return
+     */
     int add( Long userId, Long roleId);
+
+    /**
+     * 删除指定用户的权限
+     * @param userId
+     * @param roleId
+     * @return
+     */
     int delete( Long userId, Long roleId);
 }

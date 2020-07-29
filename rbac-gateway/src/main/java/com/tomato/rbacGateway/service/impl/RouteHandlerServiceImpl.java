@@ -1,7 +1,7 @@
 package com.tomato.rbacGateway.service.impl;
 
+import com.tomato.rbacGateway.service.IRouteHandlerService;
 import lombok.extern.slf4j.Slf4j;
-import org.example.nacosDemo.service.IRouteHandlerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinitionWriter;

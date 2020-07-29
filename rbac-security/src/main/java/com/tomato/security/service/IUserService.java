@@ -10,8 +10,31 @@ import com.tomato.entity.po.User;
  */
 public interface IUserService {
 
+    /**
+     * 增添用户
+     * @param user
+     * @return
+     */
     int add(User user);
+
+    /**
+     * 删除用户
+     * @param user
+     * @return
+     */
     int delete(User user);
+
+    /**
+     * 更新用户
+     * @param user
+     * @return
+     */
     int update(User user);
+
+    /**
+     * 根据用户名查询用户信息
+     * @param username
+     * @return
+     */
     User seleteByUserName(String username);
 }

@@ -14,9 +14,29 @@ import java.util.List;
 
 public interface IRoleDao {
 
+    /**
+     * 根据角色名查询角色信息
+     * @param roleName
+     * @return
+     */
     Role selectRoleByName(String roleName);
+
+    /**
+     * 增添角色
+     * @param role
+     */
     void addeRole(Role role);
+
+    /**
+     * 删除角色
+     * @param role
+     */
     void deleteRole(Role role);
+
+    /**
+     * 更新角色信息
+     * @param role
+     */
     void updateRole(Role role);
 
 }

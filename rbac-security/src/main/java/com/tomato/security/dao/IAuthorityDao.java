@@ -12,6 +12,17 @@ import org.mybatis.spring.annotation.MapperScan;
 
 public interface IAuthorityDao {
 
+    /**
+     * 给指定用户增添指定权限
+     * @param userId
+     * @param roleId
+     */
     void add(@Param("userId") Long userId, @Param("roleId")Long roleId);
+
+    /**
+     * 删除指定用户权限
+     * @param userId
+     * @param roleId
+     */
     void delete(@Param("userId") Long userId, @Param("roleId")Long roleId);
 }

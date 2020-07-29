@@ -3,6 +3,7 @@ package com.tomato.rbacGateway.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
+import org.springframework.session.data.redis.config.annotation.web.server.EnableRedisWebSession;
 
 /**
  * @author LiDaShan
@@ -11,7 +12,7 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
  * @Content:  creating a servlet filter that replaces the HttpSession
  *              implementation with an implementation backed by Spring Session
  */
-@EnableRedisHttpSession
+@EnableRedisWebSession
 public class SpringSessionConfig {
 
     @Bean
